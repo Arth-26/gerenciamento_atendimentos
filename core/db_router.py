@@ -22,6 +22,4 @@ class MultiUBSRouter:
         return None
 
     def allow_migrate(self, db, app_label, model_name=None, **hints):
-        # Aplica as migrations de TODOS os apps em ubs1 e ubs2,
-        # já que o schema é replicado nos dois.
-        return db in ALIASES_VALIDOS
+        return True
