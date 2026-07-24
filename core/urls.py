@@ -30,6 +30,8 @@ router.register('atendimentos', AtendimentoViewSet, basename='atendimentos')
 # router.register('usuarios', CustomUserViewSet, basename='usuarios')
 
 urlpatterns = [
+    path('', include('atendimentos.urls')),
+
     path('admin/', admin.site.urls),
 
     # Autenticação JWT

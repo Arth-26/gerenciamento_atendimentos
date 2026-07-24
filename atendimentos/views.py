@@ -1,3 +1,4 @@
+from django.http import JsonResponse
 from rest_framework.views import APIView, PermissionDenied
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated, IsAdminUser
@@ -97,3 +98,12 @@ class AtendimentoViewSet(viewsets.ModelViewSet):
             raise PermissionDenied({
                 'detail': 'Apenas médicos podem criar atendimentos.',
             })
+
+
+
+def hello_world(request):
+    if request.method == 'GET':
+        return JsonResponse({
+            "message": "Hello World",
+            "subdominio": request.get_host().split('.')[0]
+        })

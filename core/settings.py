@@ -28,9 +28,9 @@ SECRET_KEY = os.getenv('SECRET_KEY', '')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG', False)
 
-ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '').split(',')
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '*').split(',')
 
-CSRF_TRUSTED_ORIGINS = os.getenv('CSRF_TRUSTED_ORIGINS', '').split(',')
+CSRF_TRUSTED_ORIGINS = os.getenv('CSRF_TRUSTED_ORIGINS', '*').split(',')
 
 
 # Application definition
@@ -161,6 +161,6 @@ SIMPLE_JWT = {
 
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-SECURE_SSL_REDIRECT = bool(os.getenv('SECURE_SSL_REDIRECT', False))
-SESSION_COOKIE_SECURE = bool(os.getenv('SESSION_COOKIE_SECURE', False))
-CSRF_COOKIE_SECURE = bool(os.getenv('CSRF_COOKIE_SECURE', False))
+SECURE_SSL_REDIRECT = os.getenv('SECURE_SSL_REDIRECT', False)
+SESSION_COOKIE_SECURE = os.getenv('SESSION_COOKIE_SECURE', False)
+CSRF_COOKIE_SECURE = os.getenv('CSRF_COOKIE_SECURE', False)
